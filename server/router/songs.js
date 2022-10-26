@@ -66,7 +66,7 @@ Router.get('/favourite', (req, res)=>{
     let user=req.session.userId;
     db.query(sql,user,(err, rows, fields)=>{
         if(err)
-           res.send(err);
+           res.send("The error is:- "+err);
         else
            console.log(rows);   
     })
