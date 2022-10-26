@@ -65,10 +65,10 @@ Router.get('/favourite', (req, res)=>{
     var sql='SELECT * FROM songs WHERE idsongs IN(SELECT songId from fav_songs WHERE userId=?)';
     let user=req.session.userId;
     db.query(sql,user,(err, rows, fields)=>{
-        if(!err)
-           res.send(rows);
+        if(err)
+           res.send("The error is:- "+err);
         else
-           console.log(err);   
+           console.log(rows);   
     })
 });
 
